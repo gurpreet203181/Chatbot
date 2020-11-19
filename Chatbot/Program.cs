@@ -58,6 +58,7 @@ namespace ChatbotServer
                 Console.WriteLine("Numero di byte ricevuti: " + receivedBytes);
                 receivedString = Encoding.ASCII.GetString(buff, 0, receivedBytes);
                 Console.WriteLine("Stringa ricevuta: " + receivedString);
+                if(receivedString!= "\r\n"){
                 
                 if (receivedString.ToUpper().Trim() == "QUIT")
                 {
@@ -89,7 +90,7 @@ namespace ChatbotServer
                 //invio al client il messaggio
                 sendedBytes=client.Send(buff);
                    Array.Clear(buff, 0, buff.Length);
-                
+                }
             }
             // Termina il programma
 
@@ -123,6 +124,7 @@ namespace ChatbotServer
         }
 
     }
+
 
 
 
